@@ -2,7 +2,7 @@ package Rechner;
 
 public class DecoratorGebuehr extends Decorator {
 	
-	protected double gebuehr = 0.5;
+	protected double gebuehr = 0.95;
 
 	public DecoratorGebuehr(WR wr) {
 		super(wr);
@@ -11,7 +11,7 @@ public class DecoratorGebuehr extends Decorator {
 	@Override
 	public double umrechnen(String variante, double betrag) {
 		
-		betrag -= this.getGebuehr();
+		betrag *= this.getGebuehr();
 		
 		
 		return wr.umrechnen(variante, betrag);

@@ -10,8 +10,7 @@ public class DecoratorAusgabe extends Decorator {
 	public double umrechnen(String variante, double betrag) {
 		double ergebnis = wr.umrechnen(variante, betrag);
 		
-		System.out.println("Umrechnugsvorgang, " + variante + " mit dem Betrag " + betrag + " Euro und einer Gebühr von 0.5 Euro");
-		
+		System.out.println("Umrechnugsvorgang, " + variante + " mit dem Betrag " + betrag + " Euro und einer Gebühr von 5%.");
 		System.out.println("Ergebnis " + ergebnis);
 		return ergebnis;
 	}
