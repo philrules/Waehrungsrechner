@@ -2,9 +2,9 @@ package Rechner;
 
 public class Euro2Dollar extends WR {
 
-	private String variante = "Euro zu Dollar";
+	protected String variante = "Euro zu Dollar";
 	private double kurs = 0.8;
-	
+
 	public String getVariante() {
 		return variante;
 	}
@@ -17,7 +17,7 @@ public class Euro2Dollar extends WR {
 	public void setKurs(double kurs) {
 		this.kurs = kurs;
 	}
-	
+
 }
 /*Währungsrechner (Euro2Yen) (Euro2Dollar) abgeleitet von abstrakten Klasse
 Währungsrechner implementiert IUmrechnen.
