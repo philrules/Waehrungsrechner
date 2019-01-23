@@ -2,14 +2,15 @@ package Rechner;
 
 public abstract class WR implements IUmrechnen{
 
-	private String waehrung;
+
 	private WR nextWR;
+	private UmrechnenCommand uc;
 	
 	public double umrechnen(String variante, double betrag){   
 		double ergebnis = 0;
 		
 		if(variante.equals(this.getVariante())){
-	         ergebnis = this.logConversion(betrag);   
+	         ergebnis = this.convert(betrag);
 	      }
 		else if(nextWR != null){
 	    	ergebnis = nextWR.umrechnen(variante, betrag);
@@ -18,13 +19,7 @@ public abstract class WR implements IUmrechnen{
         return ergebnis;    
     }
 
-	public String getWaehrung() {
-		return waehrung;
-	}
 
-	public void setWaehrung(String waehrung) {
-		this.waehrung = waehrung;
-	}
 
 	public WR getNextWR() {
 		return nextWR;
@@ -34,7 +29,7 @@ public abstract class WR implements IUmrechnen{
 		this.nextWR = nextWR;
 	}
 	
-	public double logConversion(double amount) {
+	public double convert(double amount) {
 		double ergebnis = amount*this.getKurs();
 		return ergebnis;
 	}
