@@ -1,4 +1,4 @@
-package Rechner;
+package Waehrungsrechner;
 
 import java.util.Stack;
 
@@ -43,4 +43,3 @@ public class UndoRedo {
 }
 
 
-// https://codereview.stackexchange.com/questions/172662/command-pattern-with-undo-returning-response-in-invoker-and-command-class-or-c

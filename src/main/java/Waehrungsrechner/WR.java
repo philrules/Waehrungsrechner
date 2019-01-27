@@ -1,4 +1,4 @@
-package Rechner;
+package Waehrungsrechner;
 
 public abstract class WR implements IUmrechnen{
 

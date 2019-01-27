@@ -1,4 +1,4 @@
-package Rechner;
+package Waehrungsrechner;
 
 public class DecoratorGebuehr extends Decorator {
 	
@@ -12,8 +12,7 @@ public class DecoratorGebuehr extends Decorator {
 	public double umrechnen(String variante, double betrag) {
 		
 		betrag *= this.getGebuehr();
-		
-		
+
 		return wr.umrechnen(variante, betrag);
 	}
 

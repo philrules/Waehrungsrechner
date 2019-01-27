@@ -1,4 +1,4 @@
-package Rechner;
+package Waehrungsrechner;
 
 public class Euro2Pfund extends WR{
 

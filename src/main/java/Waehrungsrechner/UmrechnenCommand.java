@@ -1,4 +1,4 @@
-package Rechner;
+package Waehrungsrechner;
 
 public class UmrechnenCommand extends UndoRedo implements Command {
 
@@ -24,7 +24,7 @@ public class UmrechnenCommand extends UndoRedo implements Command {
     }
 
     public void undo() {
-        
+
     }
 
     public double getBetrag() {

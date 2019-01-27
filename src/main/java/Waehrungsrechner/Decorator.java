@@ -1,4 +1,4 @@
-package Rechner;
+package Waehrungsrechner;
 
 public abstract class Decorator extends WR {
 
@@ -20,7 +20,6 @@ public abstract class Decorator extends WR {
 
 	@Override
 	public double getKurs() {
-		
 		return wr.getKurs();
 	}	
 }

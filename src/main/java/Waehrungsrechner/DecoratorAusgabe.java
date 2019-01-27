@@ -1,4 +1,4 @@
-package Rechner;
+package Waehrungsrechner;
 
 public class DecoratorAusgabe extends Decorator {
 	
