@@ -19,8 +19,6 @@ public abstract class WR implements IUmrechnen{
         return ergebnis;    
     }
 
-
-
 	public WR getNextWR() {
 		return nextWR;
 	}
@@ -28,12 +26,12 @@ public abstract class WR implements IUmrechnen{
 	public void setNextWR(WR nextWR) {
 		this.nextWR = nextWR;
 	}
-	
+
 	public double convert(double amount) {
 		double ergebnis = amount*this.getKurs();
 		return ergebnis;
 	}
-	
+
 	public void addSuccessor(WR nextWR){
         WR next = this;
         while (next.hasNextWR()){

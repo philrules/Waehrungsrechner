@@ -7,6 +7,7 @@ public class UndoRedo {
     protected Stack<UmrechnenCommand> thingsToUndo;
     protected Stack<UmrechnenCommand> betterRedoIt;
 
+
     public UndoRedo(){
         thingsToUndo = new Stack<UmrechnenCommand>();
         betterRedoIt = new Stack<UmrechnenCommand>();

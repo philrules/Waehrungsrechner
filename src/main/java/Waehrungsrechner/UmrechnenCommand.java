@@ -2,26 +2,26 @@ package Waehrungsrechner;
 
 public class UmrechnenCommand extends UndoRedo implements Command {
 
+
     private double betrag;
     private WR wr;
     private String variante;
+    private UndoRedo ur;
 
     public UmrechnenCommand(WR wr, double betrag, String variante){
         super();
         this.wr = wr;
         this.betrag = betrag;
         this.variante = variante;
-        thingsToUndo.push(this);
     }
 
     public String execute() {
         wr.umrechnen(variante, betrag);
 
-        return "Umrechnungsvorgan " + variante + " mit dem Betrag " + betrag;
+        return "Umrechnungsvorgang " + variante + " mit dem Betrag " + betrag;
     }
 
     public void redo() {
-
 
     }
 

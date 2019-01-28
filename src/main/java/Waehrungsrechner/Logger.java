@@ -1,38 +1,24 @@
 package Waehrungsrechner;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.GenerationType;
-import java.util.Date;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
-
-@Entity
 public class Logger {
 
-
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Id
-    private int id;
-    private String entry;
+    private EntityManager en;
+    private EntityManagerFactory ef;
 
 
-    public int getId() {
-        return id;
+    public Logger(){
+        ef = Persistence.createEntityManagerFactory("waehrungsrechner");
+        en = ef.createEntityManager();
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void save(LoggerEntity le){
+        en.getTransaction().begin();
+        en.persist(le);
+        en.getTransaction().commit();
+
     }
-
-    public String getEntry() {
-        return entry;
-    }
-
-    public void setEntry(String entry) {
-        this.entry = entry;
-    }
-
-
 }

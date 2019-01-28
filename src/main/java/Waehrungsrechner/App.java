@@ -30,7 +30,16 @@ public class App
         double result = sr.sammelumrechnen(betraege, "Euro zu Dollar");
         System.out.println("Ausgabe der Sammelumrechnung: "+result);
 
+        LoggerEntity le = new LoggerEntity();
+        le.setEntry(e2p.execute());
 
+        LoggerEntity le2 = new LoggerEntity();
+        le2.setEntry(e2y.execute());
+
+        Logger log = new Logger();
+
+        log.save(le);
+        log.save(le2);
     }
     
 }
