@@ -14,8 +14,10 @@ public class UmrechnenCommand extends UndoRedo implements Command {
         thingsToUndo.push(this);
     }
 
-    public void execute() {
+    public String execute() {
         wr.umrechnen(variante, betrag);
+
+        return "Umrechnungsvorgan " + variante + " mit dem Betrag " + betrag;
     }
 
     public void redo() {

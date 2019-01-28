@@ -2,7 +2,7 @@ package Waehrungsrechner;
 
 public interface Command {
 
-    public void execute();
+    public String execute();
     public void redo();
     public void undo();
 }

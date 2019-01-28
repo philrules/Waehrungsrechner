@@ -24,6 +24,13 @@ public class App
 
         e2p.execute();
 
+
+        ISammelumrechnung sr = new Adapter(euro2Dollar);
+        double[] betraege = {12.3, 456.6, 789.9, 9999.9};
+        double result = sr.sammelumrechnen(betraege, "Euro zu Dollar");
+        System.out.println("Ausgabe der Sammelumrechnung: "+result);
+
+
     }
     
 }
