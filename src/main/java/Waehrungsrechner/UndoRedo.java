@@ -4,42 +4,61 @@ import java.util.Stack;
 
 public class UndoRedo {
 
-    protected Stack<UmrechnenCommand> thingsToUndo;
-    protected Stack<UmrechnenCommand> betterRedoIt;
+    private Stack<Double> undo;
+    private Stack<Double> redo;
 
 
     public UndoRedo(){
-        thingsToUndo = new Stack<UmrechnenCommand>();
-        betterRedoIt = new Stack<UmrechnenCommand>();
+        undo = new Stack<>();
+        redo = new Stack<>();
     }
 
-    public void execute(UmrechnenCommand uc){
-        thingsToUndo.push(uc);
-        betterRedoIt.clear();
-        uc.execute();
+    public void pushUndo(Double betrag){
+        undo.push(betrag);
     }
 
-    public void undo(){
-        if (!thingsToUndo.isEmpty()){
-            UmrechnenCommand uc = thingsToUndo.pop();
-            uc.undo();
-            betterRedoIt.push(uc);
+    public void pushRedo(Double betrag){
+        redo.push(betrag);
+    }
+
+    public Double undo(){
+        if (!undo.isEmpty()){
+            Double uc = undo.pop();
+
+            return uc;
         }
 
         else{
             System.out.println("Stack ist leer.");
+            return null;
         }
     }
 
-    public void redo(){
-        if (!betterRedoIt.isEmpty()) {
-            UmrechnenCommand uc = betterRedoIt.pop();
-            uc.execute();
-            thingsToUndo.push(uc);
+    public Double redo(){
+        if (!redo.isEmpty()) {
+            Double uc = redo.pop();
+            return uc;
         }
         else{
             System.out.println("Stack ist leer.");
+            return null;
         }
+    }
+
+    public Stack<Double> getUndo() {
+        return undo;
+    }
+
+    public void setUndo(Stack<Double> undo) {
+        this.undo = undo;
+    }
+
+    public Stack<Double> getRedo() {
+        return redo;
+    }
+
+    public void setRedo(Stack<Double> redo) {
+        this.redo = redo;
     }
 }
 

@@ -12,6 +12,7 @@ public class DecoratorAusgabe extends Decorator {
 		
 		System.out.println("Umrechnugsvorgang, " + variante + " mit dem Betrag " + betrag + " Euro und einer Gebühr von 5%.");
 		System.out.println("Ergebnis " + ergebnis);
+
 		return ergebnis;
 	}
 }

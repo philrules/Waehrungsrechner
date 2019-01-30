@@ -19,11 +19,11 @@ public class App
         UmrechnenCommand e2p = new UmrechnenCommand(wr, 10000, "Euro zu Pfund");
 
         e2d.execute();
-
+        e2d.undo();
+        e2d.redo();
         e2y.execute();
 
         e2p.execute();
-
 
         ISammelumrechnung sr = new Adapter(euro2Dollar);
         double[] betraege = {12.3, 456.6, 789.9, 9999.9};
@@ -38,8 +38,12 @@ public class App
 
         Logger log = new Logger();
 
-        log.save(le);
-        log.save(le2);
+        log.create(le);
+        log.create(le2);
+
+        //log.delete(le2);
+
+        //log.update(le, "Transaktion Storniert.");
     }
     
 }

@@ -1,6 +1,6 @@
 package Waehrungsrechner;
 
-public class UmrechnenCommand extends UndoRedo implements Command {
+public class UmrechnenCommand implements Command {
 
 
     private double betrag;
@@ -9,24 +9,38 @@ public class UmrechnenCommand extends UndoRedo implements Command {
     private UndoRedo ur;
 
     public UmrechnenCommand(WR wr, double betrag, String variante){
-        super();
         this.wr = wr;
         this.betrag = betrag;
         this.variante = variante;
+        ur = Singleton.getInstance();
+
     }
 
     public String execute() {
-        wr.umrechnen(variante, betrag);
+        ur.pushUndo(betrag);
+        double oldBetrag = betrag;
+        betrag = wr.umrechnen(variante, betrag);
+        //wr.umrechnen(variante, betrag);
 
-        return "Umrechnungsvorgang " + variante + " mit dem Betrag " + betrag;
+        return "Umrechnungsvorgang " + variante + " mit dem Betrag " + oldBetrag;
     }
 
     public void redo() {
-
+        ur.pushUndo(betrag);
+        Double temp = ur.redo();
+        if(temp != null){
+            betrag = temp;
+        }
+        System.out.println("Redo ausgeführt Betrag: "+ betrag);
     }
 
     public void undo() {
-
+        ur.pushRedo(betrag);
+        Double temp = ur.undo();
+        if(temp != null){
+            betrag = temp;
+        }
+        System.out.println("Undo ausgeführt Betrag: "+betrag);
     }
 
     public double getBetrag() {
